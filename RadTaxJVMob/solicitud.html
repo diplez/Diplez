@@ -1,0 +1,81 @@
+<header>
+    <h2>Solicitud</h2>   
+    <center><label id="respuesta" style="padding:5px;background:blue;display:none; color:white;border-radius: 10px;"></label></center>
+</header>
+<form method="post" action="#" id="form-solicitud">
+    <hr/>
+
+    <div class="6u"><input type="text" class="text" name="latitud" id="latitud" style="display:none"/></div>
+    <div class="6u"><input type="text" class="text" name="longitud" id="longitud" style="display:none"/></div>
+    <div class="6u"><input type="text" class="text" name="key" id="key" style="display:none"/></div>
+
+    <div class="row 50%">
+        <div class="12u" style="height: 200px; overflow: hidden;" >                                                                 
+            <div id="map_canvas1" style="width: 100%; height: 200px"></div>
+            <span id="demo"></span>                                            
+        </div>
+        <center><div id="status"><p id="state"></p></div> </center>
+    </div>
+    <div class="row">
+        <div class="12u">
+            <ul class="actions">
+                <li><input type="button" value="Solicitar Taxi" id="btn_solicitar" /></li>
+                <li><input type="button" value="Cerrar Session" id="btn_cerrar" style="background: green"/></li>
+            </ul>                                             
+            <script src="http://maps.google.com/maps/api/js?sensor=false"></script>            
+        </div>
+    </div>
+</form>    
+<script src="js/jquery.min.js"></script>
+<script src="js/mapsCliente.js"></script>
+<script type="text/javascript">
+    window.onload = function() {
+        setInterval(initializeCliente(), 1000);
+    };
+
+    $('#btn_cerrar').on('click', function() {
+        clearInterval();
+        localStorage.clear();
+        localStorage.removeItem(1);
+        $('#pag3').fadeOut(1000, function() {
+            $('#pag1').fadeIn(1000);
+        });
+    });
+
+    $("#btn_solicitar").click(function nuevo() {
+        var url = "solicitarBD.php"; // El script a dónde se realizará la petición.
+        $.ajax({
+            type: "POST",
+            url: url,
+            async: true,
+            data: $("#form-solicitud").serialize(), // Adjuntar los campos del formulario enviado.
+            success: function(data) {
+                //$("#respuesta").html(data); // Mostrar la respuestas del script PHH
+                //alert(data);
+                var centinela = 0, data = '';
+                var m = setInterval(function() {
+                    $.get("test.php", {cedula: localStorage.getItem(1)}, function(respuesta) {
+                        data = respuesta;
+                        if (data.split("=")[0] !== '1') {
+                            $('#respuesta').fadeIn(1000);
+                            $("#respuesta").html("Esperando Respuesta..."); // Mostrar la respuestas del script PHH                            
+                        } else {
+                            $('#respuesta').fadeOut(1000);
+                            var e = confirm("Solicitud Aceptada\nDesea Continuar?");
+                            if (e!==true) {
+                                $.get("actualizarSoliciitud.php", {cedula: localStorage.getItem(1)}, function(respuesta) {
+                                    alert(respuesta);
+                                });
+                            } else {
+                                alert("Unidada en Camino</br>Por favor espera en su ubicacion Actual");
+                            }
+                            clearInterval(m);
+                        }
+                    });
+                }, 1000);
+            }
+        });
+        return false; // Evitar ejecutar el submit del formulario.                    
+    });
+
+</script>
