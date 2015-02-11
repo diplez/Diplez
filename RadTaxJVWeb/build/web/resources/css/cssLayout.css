@@ -1,0 +1,20 @@
+
+#top {    
+    background-color: #036fab;
+    color: white;
+    padding: 0;    
+}
+
+.center_content {    
+    background-color: #39bcbe;    
+    padding: 0;
+    margin-top: 0px;
+}
+
+#bottom {
+    position: relative;
+    text-align: center;
+    background-color: #17191a;
+    padding: 15px;        
+    color: white;
+}

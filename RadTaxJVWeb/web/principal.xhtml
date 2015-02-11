@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./WEB-INF/Plantilla/plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                >
+    <ui:define name="content">            
+        <center>            
+        <img id="centroImg" src="http://localhost:8084/RadTaxJVWeb/resources/media/lojita.jpg"></img>
+        </center>
+        <!-- FORMA DE ACTUALIZAR DATOS CON FORMA DE JSF
+        <h:form>
+            <h:panelGrid id="grid" columns="2"> 
+                <p:outputLabel for="firstname"
+                               value="Firstname:" /> 
+                <p:inputText id="firstname"
+                             value="#{prueba.fecha}"/> /> 
+
+                <p:outputLabel for="surname"
+                               value="Surname:" /> 
+                <p:inputText id="surname"
+                             value="#{prueba.fecha}"/>  /> 
+            </h:panelGrid> 
+
+            <p:commandButton update="surname,firstname"/> 
+        <p:commandButton update="grid"/> 
+        <p:commandButton update="@form"/> 
+        <p:commandButton update="@all"/>
+        
+        </h:form>
+         -->
+    </ui:define>    
+
+</ui:composition>

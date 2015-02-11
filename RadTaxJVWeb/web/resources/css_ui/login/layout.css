@@ -1,0 +1,69 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18-ago-2014, 15:08:56
+    Author     : diego
+*/
+
+//@import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display);
+*{
+    //font-family: 'Pacifico', cursive;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #16A085;
+}
+
+.panelGrid-login{
+    width: 100%;
+    text-align: center;
+}
+
+#contenedor-login{
+    color: white;
+    position: relative;    
+    text-align: center;
+    padding: 20px;
+    margin: 16% 50% auto 10px;
+    background-color: #34495E;
+    border: 2px ridge #4a4545;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;    
+    -webkit-box-shadow: 4px 1px 32px 0px rgba(214,195,214,1);
+    -moz-box-shadow: 4px 1px 32px 0px rgba(214,195,214,1);
+    box-shadow: 4px 1px 32px 0px rgba(214,195,214,1);
+}
+
+@media screen and (max-width: 800px) {
+    #contenedor-login{            
+        width: 400px;
+        margin: 20% auto;
+        background-color: red;
+    }
+}
+
+@media screen and (max-width: 600px ) {
+    #contenedor-login{    
+        width: 400px;
+        margin: 20% auto ;
+        background-color: blue;
+    }
+}
+
+@media screen and (max-width: 400px ) {
+    #contenedor-login{    
+        font-size: 1em;
+        width: 300px;
+        margin: 20% auto ;
+        background-color: green;
+    }
+}
+

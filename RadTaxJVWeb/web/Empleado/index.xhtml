@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./../WEB-INF/Plantilla/plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="content">        
+        <section>
+            <h:form>  
+                <p:dataTable id="dataTable" var="empleado" value="#{empleadoController.listaEmpleados}" 
+                             emptyMessage="No hay ningun Registro" styleClass="table table-hover contenedorTablaLista">                  
+                    <f:facet name="header">
+                        Lista Empleados
+                    </f:facet>                                        
+                    <p:column id="modelColumn1" filterBy="#{empleado.cedula}"   
+                              headerText="Cedula" footerText="contains"  
+                              filterMatchMode="contains">  
+                        <h:outputText value="#{empleado.cedula}" />  
+                    </p:column>                  
+
+                    <p:column id="modelColumn2" filterBy="#{empleado.nombre}"   
+                              headerText="Nombre" footerText="contains"  
+                              filterMatchMode="contains">  
+                        <h:outputText value="#{empleado.nombre}" />  
+                    </p:column>                  
+
+                    <p:column id="modelColumn3" filterBy="#{empleado.apellido}"   
+                              headerText="Apellido" footerText="contains"  
+                              filterMatchMode="contains">  
+                        <h:outputText value="#{empleado.apellido}" />  
+                    </p:column>                  
+
+                    <p:column id="modelColumn4" filterBy="#{empleado.direccion}"   
+                              headerText="Dirección" footerText="contains"  
+                              filterMatchMode="contains">  
+                        <h:outputText value="#{empleado.direccion}" />                      
+                    </p:column>                  
+
+                    <p:column id="modelColumn5" filterBy="#{empleado.telefono}"   
+                              headerText="Teléfono" footerText="contains"  
+                              filterMatchMode="contains">  
+                        <h:outputText value="#{empleado.telefono}" />  
+                    </p:column> 
+                    
+                    <p:column id="modelColumn6" filterBy="#{empleado.usuario}"   
+                              headerText="Usuario" footerText="contains"  
+                              filterMatchMode="contains">  
+                        <h:outputText value="#{empleado.usuario}" />  
+                    </p:column> 
+                    
+                    <p:column id="modelColumn7" filterBy="#{empleado.clave}"   
+                              headerText="Clave" footerText="contains"  
+                              filterMatchMode="contains">  
+                        <h:outputText value="#{empleado.clave}" />  
+                    </p:column> 
+                    
+                    <p:column id="modelColumn8" style="text-align: center"
+                              headerText="Eliminar" 
+                              footerText="contains" >  
+                        <p:commandButton title="Eliminar" icon="ui-icon-trash" action="#{empleadoController.eliminarEmpleado(empleado.id)}"/>
+                    </p:column>
+                </p:dataTable>  
+            </h:form>                        
+        </section>        
+        <br/>
+    </ui:define>
+</ui:composition>
+
+

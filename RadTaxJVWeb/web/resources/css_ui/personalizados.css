@@ -1,0 +1,54 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25-nov-2014, 8:11:52
+    Author     : diego
+*/
+
+.boton{    
+    width: 100%;
+}
+
+.error{
+    color: #ff1329;        
+}
+
+.contenedorTablaLista{    
+    width: 70%;
+    margin: 0 auto;
+}
+
+.centrarContenedor{
+    width: 30%;
+    margin: 0 auto;
+}
+
+.izquierdo{
+    float: left;
+    width: 30%;    
+    height: 100%;
+    background: #ebebec;    
+}
+
+.derecho{        
+    float: right;      
+    width: 70%;    
+    height: 100%;        
+    overflow: hidden;
+}
+
+.principal{
+    position: relative;
+    height: 40em;
+    width: 100%;
+}
+
+#tabla{        
+    position: relative;
+    overflow: hidden;
+    width: 100px;    
+    background: red;
+}

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./../WEB-INF/Plantilla/plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:define name="content" >
+        <ul style="display: none" id="datosMaps">
+            <ui:repeat var="item" varStatus="status" value="#{clienteController.listaEmpleados}">                
+                <li>#{item.nombre}=#{item.latitud}=#{item.longitud}=#{item.asignacion}</li>
+            </ui:repeat>                     
+        </ul>
+        <center><h4 style="background: black; color: white">Direcciones Clientes</h4></center>
+        <div id="map" style="width: 100%; height: 100%;margin-top: -10px"></div>
+        <h:outputScript name="./js/mapa.js"></h:outputScript>
+        <script>
+            window.onload = function() {
+                initMap();
+            }
+        </script>
+    </ui:define>
+
+
+</ui:composition>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./../WEB-INF/Plantilla/plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"                
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <div class="principal">
+            <div class="izquierdo">
+                <div style="width: 100%;height: 30%;">
+                    <ul id="listaTareas" class="nav nav-list">
+                        <li class="nav-header"><h4>Lista De Tareas</h4></li>
+                        <li class="active" id="inicio"><a href="#">Inicio</a></li>
+                        <li id="unidades"><a href="#">Unidades</a></li>
+                        <li class="nav-header"><h4>Mapa</h4></li>
+                    </ul>
+                </div>
+                <div style="width: 100%;height: 70%;">
+                    <form>
+                        <input id="geocomplete" type="text" placeholder="Ingrese Direccion" style="width: 70%;height: 30px;" />
+                        <input id="find" type="button" value="find" class="btn btn-info" style="width: 28%;"/>
+                    </form>
+
+                    <div class="map_canvas" style="position: relative;width: 100%;height: 100%;"></div>
+                </div>
+            </div>
+            <div class="derecho" style="overflow: auto;height: 100%;">
+
+            </div>                
+        </div>        
+        <div class="remodal" data-remodal-id="modal">
+            <h1>Unidad</h1>
+            <p>
+                N° de Unidad Asignada:
+            </p>
+            <a class="remodal-cancel" href="#">Aceptar</a>                
+        </div>
+
+
+        <h:outputScript name="./js/sistemajs.js"></h:outputScript>
+        <h:outputScript name="./bosstrap/modal/openModal.js"></h:outputScript>        
+        <h:outputScript name="./js/GooglemapsPlaceAutocomplete.js"></h:outputScript>
+
+    </ui:define>
+</ui:composition>
