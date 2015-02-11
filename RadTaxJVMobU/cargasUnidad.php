@@ -9,10 +9,13 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 
 $conexion = mysqli_connect("127.13.165.2:3306", "adminEHXtNmV", "3QPx-SZY4u1_", "taxicall") or die("Error coneccion" . mysqli_error($link));
 
-$id = addslashes(htmlspecialchars($_GET['cedula']));
+$idC = $_GET['Idcliente'];
+$idU = $_GET['Idunidad'];
 
-if($conexion->query("Update inv_cliente Set asignacion='2'  where cedula='$id'")){
-    echo "Su Solicitud Cancelada";
-}else{
-    echo "error actualizar solicitud";
+if (isset($idC)&&isset($idU)) {
+    if ($conexion->query("Insert into inv_unidad_inv_cliente (unidads_id,cliente_id) values($idU,$idC)")) {        
+        echo "Datos Actualizados";
+    } else {
+        echo  "error";
+    }
 }
