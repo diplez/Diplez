@@ -24,7 +24,7 @@
             function cambioTiempo() {
                 setInterval(function() {
                     recuperarDatos();
-                }, 2000);
+                }, 60*1000);
             }
 
             var clientes = "";
@@ -69,7 +69,7 @@
 
                     <div class = 'item item3'>
                         <?php
-                        $conexion = mysqli_connect("127.13.165.2:3306", "adminEHXtNmV", "3QPx-SZY4u1_", "taxicall") or die("Error coneccion" . mysqli_error($link));
+                        $conexion = mysqli_connect("db4free.net:3306", "diplez12345", "ecuador", "diplez12345") or die("Error ");
 
                         $registros = $conexion->query("SELECT * FROM inv_cliente");
                         echo "<ul id='datosMaps' style='display:none'>";

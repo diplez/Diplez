@@ -4,7 +4,10 @@ header('Content-type: text/html; charset=iso-8859-1');
 header('Content-Type: text/html; charset=UTF-8');
 header('Cache-Control: no-store, no-cache, must-revalidate');
 
-$conexion = mysqli_connect("127.13.165.2:3306", "adminEHXtNmV", "3QPx-SZY4u1_", "taxicall") or die("Error coneccion" . mysqli_error($link));
+$conexion = mysqli_connect("db4free.net:3306", "diplez12345", "ecuador", "diplez12345") or die("Error ");
+//$conexion = mysqli_connect("localhost", "root", "", "radioTaxijvm") or die("Error ");
+//$conexion = mysqli_connect("mysql7.000webhost.com", "a2758215_root", "ecuador123", "a2758215_taxra") or die("Error ");
+
 $hola = "";
 
 $registros = $conexion->query("SELECT * FROM inv_cliente");

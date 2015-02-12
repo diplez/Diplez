@@ -5,12 +5,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
+session_start(); //actualiza la noticia 
 header('Content-Type:text/plain'); //texto de tipo plano
 header('Content-type: text/html; charset=iso-8859-1');
 header('Content-Type: text/html; charset=UTF-8');
 header('Cache-Control: no-store, no-cache, must-revalidate'); //para que no controle la cache.control de seguridad.
 
-$conexion = mysqli_connect("127.13.165.2:3306", "adminEHXtNmV", "3QPx-SZY4u1_", "taxicall") or die("Error coneccion" . mysqli_error($link));
+//$conexion = mysqli_connect("localhost", "root", "", "radioTaxijvm") or die("Error " . mysqli_error($link));
+$conexion = mysqli_connect("db4free.net:3306", "diplez12345", "ecuador", "diplez12345") or die("Error ");
 
 $usuario = addslashes(htmlspecialchars($_POST['usuario']));
 $clave = addslashes(htmlspecialchars($_POST['clave']));
